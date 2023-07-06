@@ -20,6 +20,19 @@ async function bootstrap() {
 
   //クライアントから送信されたリクエストのCookieを解析しパースされたCookieデータを利用できるようにする
   app.use(cookieParser());
-  await app.listen(3005);
+
+  app.use(
+    csurf({
+      cookie: {
+        httpOnly: true,
+        sameSite: 'none',
+        secure: true,
+      },
+      value: (req: Request) => {
+        return req.header('csrf-token');
+      },
+    }),
+  );
+  await app.listen(process.env.PORT || 3005);
 }
 bootstrap();
