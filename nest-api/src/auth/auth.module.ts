@@ -3,10 +3,14 @@ import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { PrismaModule } from 'src/prisma/prisma.module';
 import { JwtModule } from '@nestjs/jwt';
+import { JwtStrategy } from './strategy/jwt.strategy';
 
 @Module({
-  imports:[PrismaModule,JwtModule.register({})],
+  imports: [PrismaModule, JwtModule.register({})],
   controllers: [AuthController],
-  providers: [AuthService],
+  providers: [AuthService, JwtStrategy],
 })
 export class AuthModule {}
+
+////他のコンポーネントでJwtStrategyを使用する際には、
+//DIシステムによって自動的にインスタンスが作成され、注入されます
