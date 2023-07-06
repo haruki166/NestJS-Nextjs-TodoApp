@@ -17,6 +17,13 @@ import { Csrf, Msg } from './interfaces/auth.interface';
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
+  //CSRFトークンを取得するAPI
+  @Get('csrf')
+  //getCsrfTokenメソッドはreqオブジェクトを受け取りCSRFトークンを含むオブジェクトを返す。
+  getCsrfToken(@Req() req: Request): Csrf {
+    return { csrfToken: req.csrfToken() };
+  }
+
   //登録API　DBにEmailとPassを追加する
   @Post('signup')
   //Bodyデコレータでクライアントからのbodyのデータを受け取れる。今回はそれをdtoに受け取っている。
@@ -37,7 +44,7 @@ export class AuthController {
     //cookieメソッドを使用して、access_tokenという名前のクッキーを設定
     res.cookie('access_token', jwt.accessToken, {
       httpOnly: true,
-      secure: false,
+      secure: true,
       sameSite: 'none',
       path: '/',
     });
@@ -53,7 +60,7 @@ export class AuthController {
   logout(@Req() req: Request, @Res({ passthrough: true }) res: Response): Msg {
     res.cookie('access_token', '', {
       httpOnly: true,
-      secure: false,
+      secure: true,
       sameSite: 'none',
       path: '/',
     });
