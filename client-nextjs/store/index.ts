@@ -1,4 +1,5 @@
-import create from "zustand/react";
+'use client'
+import create from "zustand";
 import { EditedTask } from "../types";
 
 //カスタムフックの状態の型
