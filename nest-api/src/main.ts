@@ -15,7 +15,10 @@ async function bootstrap() {
   //、NestJSアプリケーションでCORSを有効にするための設定
   app.enableCors({
     credentials: true, //リクエストが認証情報（Cookieやトークンなど）を含む場合に許可
-    origin: ['http://localhost:3000'], //指定されたURL（ここではhttp://localhost:3000）からのリクエストを許可
+    origin: [
+      'http://localhost:3000',
+      'https://nest-js-nextjs-todo-app.vercel.app/',
+    ], //指定されたURL（ここではhttp://localhost:3000）からのリクエストを許可
   });
 
   //クライアントから送信されたリクエストのCookieを解析しパースされたCookieデータを利用できるようにする
