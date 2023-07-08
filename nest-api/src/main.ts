@@ -17,7 +17,7 @@ async function bootstrap() {
     credentials: true, //リクエストが認証情報（Cookieやトークンなど）を含む場合に許可
     origin: [
       'http://localhost:3000',
-      'https://nest-js-nextjs-todo-app.vercel.app/',
+      'https://nest-js-nextjs-todo-app.vercel.app',
     ], //指定されたURL（ここではhttp://localhost:3000）からのリクエストを許可
   });
 
