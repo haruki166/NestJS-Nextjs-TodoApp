@@ -4,12 +4,12 @@ UdemyでZin nuxさんの「NestJS + Next.js によるフルスタックWeb開発
 (https://www.udemy.com/course/nestjs-nextjs-restapi-react/)
 
 ## 使用スタック  
-*front* Next.js TypeScript
-*back* NestJS
-*DB* PostgreSQL
-*ORM* Prisma
-*certification* JWT
-*Deploy* Vercel render
+*front* Next.js TypeScript  
+*back* NestJS  
+*DB* PostgreSQL  
+*ORM* Prisma  
+*certification* JWT  
+*Deploy* Vercel render  
 
 ## 難しかったところ  
 * TypeScriptの状態管理ライブラリの「zustand」を初めて使ったので最初はわからなく手こずりました。  
